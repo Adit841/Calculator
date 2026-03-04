@@ -40,6 +40,8 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
   padding: 20px;
+
+  overflow: hidden;
 }
 .previous {
   font-size: 18px;
@@ -48,6 +50,10 @@ body {
 .current {
   font-size: 40px;
   font-weight: bold;
+
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 .buttons {
   height: 60%;

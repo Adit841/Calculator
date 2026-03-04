@@ -17,8 +17,14 @@ themeToggle.addEventListener('click', () => {
 let operator;
 let previous;
 
+function playSound() {
+  clickSound.currentTime = 0;
+  clickSound.play();
+}
+
 numbers.forEach((button) => {
   button.addEventListener("click", () => {
+    playSound();
     if (
       button.textContent === "." &&
       currentDisplay.textContent.includes(".")
@@ -26,8 +32,7 @@ numbers.forEach((button) => {
       return;
     }
     currentDisplay.textContent += button.textContent;
-    clickSound.currentTime = 0;
-    clickSound.play();
+    
   });
 });
 
@@ -43,6 +48,7 @@ operators.forEach((button) => {
     }
   });
 });
+
 
 function calculate() {
   let current = currentDisplay.textContent;
@@ -100,6 +106,7 @@ document.addEventListener('keydown', (e) => {
   if(!isNaN(key) || key === "."){
     currentDisplay.textContent +=key;
   }
+  playSound();
 
   if(key === "+" || key === "-" || key === "X" || key === "/" ){
     operator = key;
