@@ -32,20 +32,19 @@ numbers.forEach((button) => {
       return;
     }
     currentDisplay.textContent += button.textContent;
-    
   });
 });
 
 operators.forEach((button) => {
   button.addEventListener("click", () => {
+    if (currentDisplay.textContent === "" || previous === "") {
+      return;
+    }
     operator = button.textContent;
     previous = currentDisplay.textContent;
 
     previousDisplay.textContent = previous + " " + operator;
     currentDisplay.textContent = "";
-    if (currentDisplay.textContent === "") {
-      return;
-    }
   });
 });
 
@@ -66,11 +65,15 @@ function calculate() {
     result = a - b;
   }
 
-  if (operator === "X") {
+  if (operator === "*") {
     result = a * b;
   }
 
   if (operator === "/") {
+    if(b === 0) {
+      currentDisplay.textContent = "Error";
+      return;
+    }
     result = a / b;
   }
 
@@ -100,20 +103,23 @@ percent.addEventListener("click", () => {
 });
 
 document.addEventListener('keydown', (e) => {
-
+  
   let key = e.key;
-
-  if(!isNaN(key) || key === "."){
+  
+  if(!isNaN(key) ){
     currentDisplay.textContent +=key;
   }
-  playSound();
-
-  if(key === "+" || key === "-" || key === "X" || key === "/" ){
+  if(key === "." && !currentDisplay.textContent.includes(".")){
+    currentDisplay.textContent += ".";
+  }
+  
+  if(key === "+" || key === "-" || key === "*" || key === "/" ){
     operator = key;
     previous = currentDisplay.textContent;
-
+    
     previousDisplay.textContent = previous + " " + operator;
     currentDisplay.textContent = "";
+    playSound();
   }
 
   if(key === "Enter"){

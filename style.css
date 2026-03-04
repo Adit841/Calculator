@@ -54,6 +54,7 @@ body {
   max-width: 100%;
   white-space: nowrap;
   overflow-x: auto;
+  scrollbar-width: none;
 }
 .buttons {
   height: 60%;
@@ -91,7 +92,7 @@ button:active {
   --container-bg: #1e1e1e;
   --btn-bg: #2c2c2c;
   --text-color: white;
-  --shadow: 0px, 4px, 10px, rgba(0, 0, 0, 0.5);
+  --shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .themeToggle{
   cursor: pointer;
