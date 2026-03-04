@@ -1,3 +1,10 @@
+:root {
+  --bg-color: lightblue;
+  --container-bg: white;
+  --btn-bg: #f2f2f2;
+  --text-color: black;
+  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,16 +15,17 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 .container {
-  background-color: white;
+  background-color: var(--container-bg);
   padding: 20px;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   height: 600px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -33,11 +41,11 @@ body {
   align-items: flex-end;
   padding: 20px;
 }
-.previous{
+.previous {
   font-size: 18px;
   color: grey;
 }
-.current{
+.current {
   font-size: 40px;
   font-weight: bold;
 }
@@ -49,24 +57,36 @@ body {
   grid-template-rows: repeat(5, 1fr);
   gap: 15px;
 }
-button{
-  font-size: 20px;
+button {
+  background-color: var(--btn-bg);
+  font-size: clamp(16px, 2vw, 22px);
   border: none;
   cursor: pointer;
   border-radius: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+  color: var(--text-color);
   width: 100%;
   height: 100%;
 }
 
-button:active{
+button:active {
   transform: scale(0.95);
-  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.zero{
+.zero {
   grid-column: span 2;
 }
-.equals{
+.equals {
   background-color: lightgreen;
   color: black;
+}
+.dark {
+  --bg-color: #121212;
+  --container-bg: #1e1e1e;
+  --btn-bg: #2c2c2c;
+  --text-color: white;
+  --shadow: 0px, 4px, 10px, rgba(0, 0, 0, 0.5);
+}
+.themeToggle{
+  cursor: pointer;
 }

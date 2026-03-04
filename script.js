@@ -7,6 +7,12 @@ const percent = document.querySelector(".percent");
 const zero = document.querySelector(".zero");
 const previousDisplay = document.querySelector(".previous");
 const currentDisplay = document.querySelector(".current");
+const themeToggle = document.querySelector('.themeToggle');
+
+const clickSound = new Audio("click.mp3");
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
 
 let operator;
 let previous;
@@ -20,6 +26,8 @@ numbers.forEach((button) => {
       return;
     }
     currentDisplay.textContent += button.textContent;
+    clickSound.currentTime = 0;
+    clickSound.play();
   });
 });
 
